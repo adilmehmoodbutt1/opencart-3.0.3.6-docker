@@ -10,7 +10,7 @@ services:
       - MYSQL_ROOT_PASSWORD=change_to_secure_password
     restart: always
     volumes:
-      - ./mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
 
   phpmyadmin:
     depends_on:
