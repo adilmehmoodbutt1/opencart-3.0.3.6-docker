@@ -1,12 +1,16 @@
-FROM adilmehmoodbutt/opencart-3.0.3.6:latest
+FROM adilmehmoodbutt/opencart-3.0.3.6-ubuntu-18.04:mytag
 
+RUN apt-get update && apt-get install -y \
+  htop \
+  curl \
+  wget \
+  net-tools \
+  git \
+  dnsutils \
+  vim \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://getcomposer.org/installer | php -- \
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
 
+RUN curl -sS https://getcomposer.org/installer | php -- \ 
 --install-dir=/usr/local/bin/ --filename=composer
-
-#RUN composer require /var/www/html/vendor/vlucas/phpdotenv
-RUN composer require vlucas/phpdotenv
-CMD cd /var/www/html/vendor/ && composer require vlucas/phpdotenv
-CMD cd /var/www/storage && composer require vlucas/phpdotenv
-
