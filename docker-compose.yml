@@ -1,9 +1,8 @@
 version: '3.2'
 services:
   mysql:
-    image: adilmehmoodbutt/mariadb-server10.5-opencart:new
+    image: mariadb/server:10.5
     container_name: mysql
-#    build: ./mysql_dockerfile
     hostname: mysql
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -25,7 +24,7 @@ services:
       MYSQL_ROOT_PASSWORD: change_to_secure_password
 
   opencart:
-    image: adilmehmoodbutt/opencart-3.0.3.6-ubuntu-18.04:mytag
+    image: php:7.3-apache
     container_name: opencart
     build: ./opencart_dockerfile
     hostname: opencart
