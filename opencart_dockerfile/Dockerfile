@@ -38,5 +38,6 @@ RUN set -xe \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www/storage
-RUN composer require vlucas/phpdotenv
+ADD cmd.sh /cmd.sh
+RUN chmod 755 /cmd.sh
+CMD ["/cmd.sh"]
