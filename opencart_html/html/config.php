@@ -1,4 +1,13 @@
 <?php
+
+define('DIR_VENDOR','/var/www/storage/vendor/');
+//echo DIR_VENDOR;exit;
+//require_once(DIR_VENDOR . 'startup.php');
+
+//$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+//$dotenv->load();
+
+
 // HTTP
 define('HTTP_SERVER', 'http://localhost/');
 
